@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+DIALAUG
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h1>Scenes</h1>
+
+                <ul>
+                    {% for scene in scenes %}
+                    <li>{{ scene }} -- {{ scene.character_code }}</li>
+                    {% endfor %}
+                </ul>
+                
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h1 class="display-1">Thought by {{ object.character }}</h1>
+
+                <p>{{ object.text }}</p>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+{% endblock %}
+

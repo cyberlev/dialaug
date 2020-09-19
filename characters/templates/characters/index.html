@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h1 class="display-1">Characters</h1>
+
+                <ul>
+                    {% for character in characters %}
+                    <li>{{ character }} -- {{ character.character_code }}</li>
+                    {% endfor %}
+                </ul>
+                
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+

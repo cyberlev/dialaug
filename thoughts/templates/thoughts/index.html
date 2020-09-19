@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h1 class="display-1">Thoughts</h1>
+
+                <ul>
+                    {% for thought in thoughts %}
+                    <li><a href="{{ thought.get_absolute_url }}">{{ thought.character }}: {{ thought.text }}</a></li>
+                    {% endfor %}
+                </ul>
+                
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
