@@ -22,6 +22,5 @@ urlpatterns = [
     path('characters/', include('characters.urls')),
     path('scenes/', include('scenes.urls')),
     path('lines/', include('lines.urls')),
-    path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
 ]
