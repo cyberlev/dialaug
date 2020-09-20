@@ -12,6 +12,14 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Character.objects.all()
 
+class CreateView(generic.CreateView):
+    model = Character
+    template_name = 'characters/create_character.html'
+    form_class = CharacterCreateForm
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
 def character_create_view(request):
     form = CharacterCreateForm(request.POST or None)
 

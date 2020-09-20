@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'characters.apps.CharactersConfig',
     'lines.apps.LinesConfig',
     'scenes.apps.ScenesConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
