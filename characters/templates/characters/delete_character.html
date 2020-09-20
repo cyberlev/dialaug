@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+DIALAUG
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <form action="." method="POST">
+
+                    {% csrf_token %}
+                
+                    <h1>Do you want to delete this character: {{ object.name }}</h1>
+
+                    <p>Character code: {{ object.code }}</p>
+                
+                    <p><input type="submit" value="Yes" /> <a href="{{ object.get_absolute_url }}">Cancel</a></p>
+                
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+

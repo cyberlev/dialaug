@@ -1,18 +1,18 @@
 from django.db import models
+from django.urls import reverse
 
 class Character(models.Model):
-    first_name = models.CharField(blank=True, null=True, max_length=80, default='UNKNOWN')
-    last_name = models.CharField(blank=True, null=True, max_length=80, default='UNKNOWN')
-    nickname = models.CharField(blank=True, null=True, max_length=80, default='UNKNOWN')
-    birth_date = models.DateField(blank=True, null=True, auto_now=False, auto_now_add=False)
+    name = models.CharField(blank=True, null=True, max_length=80)
     age = models.PositiveSmallIntegerField(blank=True, null=True)
-    sex = models.PositiveSmallIntegerField(blank=True, null=True)
-    gender = models.CharField(blank=True, null=True, max_length=80, default='UNKNOWN')
-    character_code = models.CharField(blank=True, null=True, max_length=6, default='UNKUNK')
-    nationality = models.CharField(blank=True, null=True, max_length=2, default='--')
-    height = models.FloatField(blank=True, null=True)
-    weight = models.FloatField(blank=True, null=True)
-    skin_color = models.CharField(blank=True, null=True, max_length=80)
-    hair_color = models.CharField(blank=True, null=True, max_length=80)
-    iris_color = models.CharField(blank=True, null=True, max_length=80)
+    gender = models.CharField(blank=True, null=True, max_length=80)
+    code = models.CharField(blank=True, null=True, max_length=6)
     description = models.TextField(blank=True, null=True)
+
+    def get_absolute_url(self):
+        return reverse("characters:show-character", kwargs={'pk': self.id})
+    
+    def get_edit_url(self):
+        return reverse("characters:edit-character", kwargs={'pk': self.id})
+
+    def get_delete_url(self):
+        return reverse("characters:delete-character", kwargs={'pk': self.id})

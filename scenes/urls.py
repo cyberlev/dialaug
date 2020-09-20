@@ -5,5 +5,8 @@ app_name = 'scenes'
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
-    path('create/', views.scene_create_view, name='scene_create_view')
+    path('create/', views.CreateView.as_view(), name='create-scene'),
+    path('<int:pk>/', views.DetailView.as_view(), name='show-scene'),
+    path('<int:pk>/edit', views.UpdateView.as_view(), name='edit-scene'),
+    path('<int:pk>/delete', views.DeleteView.as_view(), name='delete-scene'),
 ]

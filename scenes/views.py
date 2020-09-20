@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse
 
 from .models import Scene
 
@@ -10,19 +11,37 @@ class IndexView(generic.ListView):
     context_object_name = "scenes"
 
     def get_queryset(self):
-        """Return the last five published questions."""
-
         return Scene.objects.all()
 
-def scene_create_view(request):
-    form = SceneCreateForm(request.POST or None)
+class CreateView(generic.CreateView):
+    model = Scene
+    template_name = 'scenes/create_scene.html'
+    form_class = SceneCreateForm
 
-    if form.is_valid():
-        form.save()
-        form = SceneCreateForm()
+    def form_valid(self, form):
+        return super().form_valid(form)
 
-    context = {
-        'form': form
-    }
+class DetailView(generic.DetailView):
+    model = Scene
+    template_name = 'scenes/show_scene.html'
 
-    return render(request, "scenes/scene_create.html", context)
+    def get_queryset(self):
+        return Scene.objects.all()
+
+class UpdateView(generic.UpdateView):
+    model = Scene
+    template_name = 'scenes/create_scene.html'
+    form_class = SceneCreateForm
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+class DeleteView(generic.DeleteView):
+    model = Scene
+    template_name = 'scenes/delete_character.html'
+
+    def get_queryset(self):
+        return Scene.objects.all()
+    
+    def get_success_url(self):
+        return reverse('scenes:index')

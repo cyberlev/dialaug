@@ -6,35 +6,16 @@ class CharacterCreateForm(forms.ModelForm):
     class Meta:
         model = Character
         fields = [
-            'first_name',
-            'last_name',
-            'nickname',
-            'birth_date',
+            'name',
             'age',
-            'sex',
             'gender',
-            'character_code',
-            'nationality',
-            'height',
-            'weight',
-            'skin_color',
-            'hair_color',
-            'iris_color',
+            'code',
             'description',
         ]
 
 class RawCharacterCreateForm(forms.Form):
-    first_name = forms.CharField()
-    last_name = forms.CharField()
-    nickname = forms.CharField()
-    birth_date = forms.DateField()
+    name = forms.CharField()
     age = forms.IntegerField()
-    sex = forms.IntegerField()
     gender = forms.CharField()
-    character_code = forms.CharField()
-    nationality = forms.CharField()
-    height = forms.FloatField()
-    weight = forms.FloatField()
-    skin_color = forms.CharField()
-    iris_color = forms.CharField()
+    code = forms.CharField()
     description = forms.CharField()

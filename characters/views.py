@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse
 
 from .models import Character
 
@@ -20,24 +21,27 @@ class CreateView(generic.CreateView):
     def form_valid(self, form):
         return super().form_valid(form)
 
-def character_create_view(request):
-    form = CharacterCreateForm(request.POST or None)
+class DetailView(generic.DetailView):
+    model = Character
+    template_name = 'characters/show_character.html'
 
-    if form.is_valid():
-        form.save()
-        form = CharacterCreateForm()
+    def get_queryset(self):
+        return Character.objects.all()
 
-    context = {
-        'form': form
-    }
+class UpdateView(generic.UpdateView):
+    model = Character
+    template_name = 'characters/create_character.html'
+    form_class = CharacterCreateForm
 
-    return render(request, "characters/character_create.html", context)
+    def form_valid(self, form):
+        return super().form_valid(form)
 
-def raw_character_create_view(request):
-    form = RawCharacterCreateForm(request.POST)
+class DeleteView(generic.DeleteView):
+    model = Character
+    template_name = 'characters/delete_character.html'
 
-    context = {
-        "form": form,
-    }
+    def get_queryset(self):
+        return Character.objects.all()
 
-    return render(request, "characters/character_create.html", context)
+    def get_success_url(self):
+        return reverse('characters:index')
