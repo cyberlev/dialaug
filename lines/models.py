@@ -3,9 +3,9 @@ from django.urls import reverse
 from scenes.models import Scene
 
 class Line(models.Model):
-    scene = models.ForeignKey(Scene, on_delete=models.CASCADE)
+    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, default=None)
     code = models.CharField(max_length=80, null=True)
-    text = models.TextField()
+    text = models.TextField(default='')
 
     class Meta:
         ordering = ['code']
