@@ -38,7 +38,7 @@ class UpdateView(generic.UpdateView):
 
 class DeleteView(generic.DeleteView):
     model = Scene
-    template_name = 'scenes/delete_character.html'
+    template_name = 'scenes/delete_scene.html'
 
     def get_queryset(self):
         return Scene.objects.all()

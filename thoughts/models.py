@@ -4,7 +4,7 @@ from scenes.models import Scene
 
 class Thought(models.Model):
     code = models.CharField(max_length=12, default='')
-    scene = models.ForeignKey(Scene, on_delete=models.CASCADE)
+    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, null=True)
     character = models.TextField()
     text = models.TextField()
 

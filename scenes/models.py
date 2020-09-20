@@ -9,3 +9,9 @@ class Scene(models.Model):
 
     def get_absolute_url(self):
         return reverse('scenes:show-scene', kwargs={'pk': self.id})
+    
+    def get_edit_url(self):
+        return reverse('scenes:edit-scene', kwargs={'pk': self.id})
+
+    def get_delete_url(self):
+        return reverse('scenes:delete-scene', kwargs={'pk': self.id})
