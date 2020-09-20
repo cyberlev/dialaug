@@ -3,7 +3,7 @@ from django.urls import reverse
 from scenes.models import Scene
 
 class Line(models.Model):
-    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, default=None)
+    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, default=None, null=True)
     code = models.CharField(max_length=80, null=True)
     text = models.TextField(default='')
 
