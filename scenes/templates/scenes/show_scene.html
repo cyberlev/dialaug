@@ -4,16 +4,70 @@
 
     <div class="container">
 
+        <br>
+
         <div class="row">
 
-            <div class="col-md-12">
+            <div class="col-md-8">
 
-                <h1>Scene: {{ object.code }}</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <ul class="nav">
+                            <li class="nav-item">
+                              <a class="nav-link active" href="#">Lines</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Thoughts</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link" href="#">Images</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Character</a>
+                            </li>
+                          </ul>
 
-                <p>{{ object.text }}</p>
+                          <br>
 
-                <a href="{{ object.get_edit_url }}">Edit</a> | <a href="{{ object.get_delete_url }}">Delete</a>
-                
+                        <div class="card">
+                            <h5 class="card-header">DRMT001</h5>
+                            <div class="card-body">
+                                <h5 class="card-title">Character:</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="card">
+                            <h5 class="card-header">DRMT001</h5>
+                            <div class="card-body">
+                                <h5 class="card-title">Character:</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ object.code }}</h5>
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+
+                        <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
+                        <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
+
+                    </div>
+                </div>
+
             </div>
 
         </div>
