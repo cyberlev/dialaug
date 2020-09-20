@@ -1,9 +1,12 @@
 from django.db import models
 from django.urls import reverse
 from lines.models import Line
+from scenes.models import Scene
 
 class Response(models.Model):
+    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, null=True)
     line = models.ForeignKey(Line, on_delete=models.CASCADE)
+    next_line = models.OneToOneField(Line, related_name="next_line", on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=20, default='')
     text = models.TextField(default='')
     

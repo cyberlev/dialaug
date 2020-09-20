@@ -4,7 +4,7 @@ from characters.models import Character
 
 class Scene(models.Model):
     code = models.CharField(max_length = 12, default='')
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField(default='')
     characters = models.ManyToManyField(Character)
 
     def __str__(self):

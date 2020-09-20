@@ -1,9 +1,11 @@
 from django.db import models
 from django.urls import reverse
 from scenes.models import Scene
+from characters.models import Character
 
 class Line(models.Model):
     scene = models.ForeignKey(Scene, on_delete=models.CASCADE, default=None, null=True)
+    character = models.ForeignKey(Character, on_delete=models.CASCADE, null=True)
     code = models.CharField(max_length=80, null=True)
     text = models.TextField(default='')
 
