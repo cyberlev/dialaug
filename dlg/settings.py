@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'responses.apps.ResponsesConfig',
     'dashboard.apps.DashboardConfig',
     'thoughts.apps.ThoughtsConfig',
     'characters.apps.CharactersConfig',
