@@ -8,6 +8,9 @@ class Character(models.Model):
     code = models.CharField(blank=True, null=True, max_length=6)
     description = models.TextField(blank=True, null=True)
 
+    def __str__(self):
+        return self.name + ' (' + self.code + ')'
+
     def get_absolute_url(self):
         return reverse("characters:show-character", kwargs={'pk': self.id})
     

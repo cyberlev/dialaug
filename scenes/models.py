@@ -7,6 +7,9 @@ class Scene(models.Model):
     description = models.TextField(blank=True, null=True)
     characters = models.ManyToManyField(Character)
 
+    def __str__(self):
+        return self.code + ': ' + self.description
+
     def get_absolute_url(self):
         return reverse('scenes:show-scene', kwargs={'pk': self.id})
     
