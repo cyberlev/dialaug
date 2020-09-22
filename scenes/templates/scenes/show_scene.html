@@ -10,36 +10,44 @@
 
             <div class="col-md-8">
 
+                <h3>Lines</h3>
+
                 <div class="card">
+
                     <div class="card-body">
+
                         <ul class="nav">
                             <li class="nav-item">
-                              <a class="nav-link active" href="#">Lines</a>
+                                <a class="nav-link active" href="{{ object.get_absolute_url }}">Lines</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Thoughts</a>
+                                <a class="nav-link" href="#">Thoughts</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" href="#">Images</a>
+                                <a class="nav-link" href="#">Images</a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Character</a>
+                                <a class="nav-link" href="{{ object.get_characters_url }}">Characters</a>
                             </li>
-                          </ul>
+                        </ul>
 
-                          <br>
+                        <br>
+
+                        {% for line in object.line_set.all %}
 
                         <div class="card">
-                            <h5 class="card-header">DRMT001</h5>
+                            <h5 class="card-header">{{ line.code }}</h5>
                             <div class="card-body">
-                                <h5 class="card-title">Character:</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <h5 class="card-title">{{ line.character.name }}:</h5>
+                                <p class="card-text">{{ line.text }}</p>
                                 <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
                                 <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
                             </div>
                         </div>
 
                         <br>
+
+                        {% endfor %}
 
                         <div class="card">
                             <h5 class="card-header">DRMT001</h5>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse
 
@@ -45,3 +45,13 @@ class DeleteView(generic.DeleteView):
     
     def get_success_url(self):
         return reverse('scenes:index')
+
+def characters_view(request, pk):
+    scene = get_object_or_404(Scene, pk=pk)
+    characters = scene.characters.all()
+    context = {
+        'scene': scene,
+        'characters': characters
+    }
+
+    return render(request, 'scenes/characters.html', context)

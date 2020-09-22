@@ -9,4 +9,5 @@ urlpatterns = [
     path('<int:pk>/', views.DetailView.as_view(), name='show-scene'),
     path('<int:pk>/edit', views.UpdateView.as_view(), name='edit-scene'),
     path('<int:pk>/delete', views.DeleteView.as_view(), name='delete-scene'),
+    path('<int:pk>/characters', views.characters_view, name='characters-scene'),
 ]

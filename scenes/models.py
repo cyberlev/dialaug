@@ -18,3 +18,6 @@ class Scene(models.Model):
 
     def get_delete_url(self):
         return reverse('scenes:delete-scene', kwargs={'pk': self.id})
+
+    def get_characters_url(self):
+        return reverse('scenes:characters-scene', kwargs={'pk': self.id})
