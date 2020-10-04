@@ -49,6 +49,7 @@ class DeleteView(generic.DeleteView):
 def characters_view(request, pk):
     scene = get_object_or_404(Scene, pk=pk)
     characters = scene.characters.all()
+    
     context = {
         'scene': scene,
         'characters': characters

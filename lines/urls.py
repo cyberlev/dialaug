@@ -10,4 +10,5 @@ urlpatterns = [
     path('<int:pk>/', views.DetailView.as_view(), name='show-line'),
     path('<int:pk>/edit/', views.UpdateView.as_view(), name='edit-line'),
     path('<int:pk>/delete/', views.DeleteView.as_view(), name='delete-line'),
+    path()
 ]

@@ -14,7 +14,9 @@
                     
                     {% csrf_token %}
 
-                    {{ form.as_p }}
+                    {{ form.line_code }}
+
+                    {{ form.line_text }}
 
                     <input type="submit" value="Save" />
 
