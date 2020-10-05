@@ -10,16 +10,44 @@
 
                 <h2>Line</h1>
 
-                <div class="card" style="width: 24rem;">
+                <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title"><b>{{ object.get_line_code }}</b></h5>
-                        <a href="{{ object.scene.get_absolute_url }}" class="badge badge-primary">{{ object.scene.get_scene_code }}</a>
-                        <a href="{{ object.character.get_absolute_url }}" class="badge badge-success">{{ object.character.name }}</a>
-                        <p class="card-text">{{ object.text }}</p>
-                        <a href="{{ object.get_edit_url }}" class="btn btn-sm btn-primary">{% include 'icons/pencil_fill.html' %}</a>
-                        <a href="{{ object.get_delete_url }}" class="btn btn-sm btn-danger">{% include 'icons/trash_can_fill.html' %}</a>
+                        <h5 class="card-title">
+                            <a href="{{ object.scene.get_absolute_url }}" class="badge badge-primary">{{ object.scene.get_scene_code }}</a>
+                            -
+                            <a href="{{ object.character.get_absolute_url }}" class="badge badge-success">{{ object.character.code }}</a>
+                            -
+                            <a href="{{ object.get_absolute_url }}" class="badge badge-warning">{{ object.get_line_id }}</a>
+                        </h5>
+
+                        <br>
+
+                        <h5><b>Text</b></h5>
+
+                        <a href="#" class="btn btn-sm btn-outline-warning btn-block">{{ object.text }}</a>
+
+                        <br>
+
+                        <div>
+                            <h5><b>Responses</b></h5>
+                            
+                            <ol>
+
+                                <li>
+                                    <a href="#" class="btn btn-sm btn-outline-info btn-block">My first response is a pretty long one for some reason. I just want to test the limits here.</a> 
+                                    <a href="#" class="badge badge-primary">Add consequense</a>
+                                </li>
+
+                            </ol>
+                            
+                        </div>
                     </div>
-                </div>                
+
+                    
+                </div>
+                
+                
+                
 
             </div>
 

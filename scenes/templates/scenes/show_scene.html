@@ -44,15 +44,39 @@
                                 -
                                 <a href="{{ line.get_absolute_url }}" class="badge badge-warning">{{ line.get_line_id }}</a>
                             </h5>
+
+                           <ul class="nav justify-content-end">
+                               <li class="nav-item">
+                                    <a class="nav-link" href="{{ line.get_edit_url }}">Add response</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ line.get_edit_url }}">Edit</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ line.get_delete_url }}">Delete</a>
+                                </li>
+                            </ul> 
+
                             <div class="card-body">
-                                
-                                
+                                <h5 class="card-title"><b>{{ line.character.name }}:</b></h5>
 
-                                <h5 class="card-title">{{ line.character.name }}:</h5>
-                                <p class="card-text">{{ line.text }}</p>
+                                <a href="{{ line.get_absolute_url }}" class="btn btn-sm btn-outline-warning btn-block">{{ line.text }}</a>
 
-                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
-                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
+                                <br>
+
+                                <div>
+                                    <h5><b>Responses</b></h5>
+
+                                    <ol>
+
+                                        <li>
+                                            <a href="#" class="btn btn-sm btn-outline-info btn-block">My first response is a pretty long one for some reason. I just want to test the limits here.</a>
+                                        </li>
+
+                                    </ol>
+
+                                    
+                                </div>
                             </div>
                         </div>
 
@@ -67,12 +91,12 @@
 
             <div class="col-md-4">
 
-                <h3>Menu</h3>
+                <h3>Scene</h3>
                 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Line: L{{ object.pk }}</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">{{ object.get_scene_code }}</h5>
+                        <p class="card-text">{{ object.description }}</p>
 
                         <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
                         <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
