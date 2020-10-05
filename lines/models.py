@@ -14,8 +14,8 @@ class Line(models.Model):
         ordering = ['code']
 
     def __str__(self):
-        if(self.code != None and self.text != None):
-            return self.code + ': ' + self.text
+        if(self.pk != None and self.text != None):
+            return self.pk + ': ' + self.text
         else:
             return str(self.pk)
 
