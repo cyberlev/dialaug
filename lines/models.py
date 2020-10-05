@@ -27,3 +27,9 @@ class Line(models.Model):
 
     def get_delete_url(self):
         return reverse("lines:delete-line", kwargs={'pk': self.pk})
+
+    def get_line_code(self):
+        return 'S' + str(self.scene.pk) + '-' + self.character.code + '-L' + str(self.pk)
+
+    def get_line_id(self):
+        return 'L' + str(self.id)

@@ -8,12 +8,19 @@
 
             <div class="col-md-12">
 
-                <h1>Line: {{ object.code }}</h1>
+                <h2>Line</h1>
 
-                <p>{{ object.text }}</p>
+                <div class="card" style="width: 24rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{ object.get_line_code }}</b></h5>
+                        <a href="{{ object.scene.get_absolute_url }}" class="badge badge-primary">{{ object.scene.get_scene_code }}</a>
+                        <a href="{{ object.character.get_absolute_url }}" class="badge badge-success">{{ object.character.name }}</a>
+                        <p class="card-text">{{ object.text }}</p>
+                        <a href="{{ object.get_edit_url }}" class="btn btn-sm btn-primary">{% include 'icons/pencil_fill.html' %}</a>
+                        <a href="{{ object.get_delete_url }}" class="btn btn-sm btn-danger">{% include 'icons/trash_can_fill.html' %}</a>
+                    </div>
+                </div>                
 
-                <a href="{{ object.get_edit_url }}">Edit</a> | <a href="{{ object.get_delete_url }}">Delete</a>
-                
             </div>
 
         </div>

@@ -37,10 +37,20 @@
                         {% for line in object.line_set.all %}
 
                         <div class="card">
-                            <h5 class="card-header">{{ line.character.name }}: L{{ line.pk }}</h5>
+                            <h5 class="card-header">
+                                <a href="{{ line.scene.get_absolute_url }}" class="badge badge-primary">{{ line.scene.get_scene_code }}</a>
+                                -
+                                <a href="{{ line.character.get_absolute_url }}" class="badge badge-success">{{ line.character.code }}</a>
+                                -
+                                <a href="{{ line.get_absolute_url }}" class="badge badge-warning">{{ line.get_line_id }}</a>
+                            </h5>
                             <div class="card-body">
+                                
+                                
+
                                 <h5 class="card-title">{{ line.character.name }}:</h5>
                                 <p class="card-text">{{ line.text }}</p>
+
                                 <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
                                 <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
                             </div>

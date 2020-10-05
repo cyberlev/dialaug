@@ -23,3 +23,6 @@ class Scene(models.Model):
 
     def get_characters_url(self):
         return reverse('scenes:characters-scene', kwargs={'pk': self.pk})
+
+    def get_scene_code(self):
+        return 'S' + str(self.pk)
