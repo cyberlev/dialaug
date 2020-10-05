@@ -10,7 +10,7 @@ class Scene(models.Model):
         if(self.pk != None and self.description != None):
             return 'S' + str(self.pk) + ': ' + self.description
         else:
-            return str(self.pk)
+            return "NO ID"
 
     def get_absolute_url(self):
         return reverse('scenes:show-scene', kwargs={'pk': self.pk})

@@ -17,7 +17,7 @@ class Line(models.Model):
         if(self.pk != None and self.text != None):
             return str(self.pk) + ': ' + self.text
         else:
-            return str(self.pk)
+            return "NO ID"
 
     def get_absolute_url(self):
         return reverse("lines:show-line", kwargs={'pk': self.pk})
@@ -32,4 +32,4 @@ class Line(models.Model):
         return 'S' + str(self.scene.pk) + '-' + self.character.code + '-L' + str(self.pk)
 
     def get_line_id(self):
-        return 'L' + str(self.id)
+        return 'L' + str(self.pk)

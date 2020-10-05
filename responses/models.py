@@ -4,20 +4,21 @@ from lines.models import Line
 from scenes.models import Scene
 
 class Response(models.Model):
-    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, null=True)
-    line = models.ForeignKey(Line, on_delete=models.CASCADE)
-    next_line = models.OneToOneField(Line, related_name="next_line", on_delete=models.CASCADE, null=True)
-    code = models.CharField(max_length=20, default='')
+    line = models.ForeignKey(Line, on_delete=models.PROTECT)
+    next_line = models.OneToOneField(Line, related_name="next_line", on_delete=models.PROTECT, null=True)
     text = models.TextField(default='')
     
     class Meta:
-        ordering = ['code']
+        ordering = ['pk']
 
     def __str__(self):
-        return self.code + ': ' + self.text
+        return self.text
 
     def get_absolute_url(self):
-        return reverse("responses:show-thought", kwargs={'pk': self.id})
+        return reverse("responses:show-thought", kwargs={'pk': self.pk})
     
     def get_edit_url(self):
-        return reverse("responses:edit-thought", kwargs={'pk': self.id})
+        return reverse("responses:edit-thought", kwargs={'pk': self.pk})
+
+    def get_response_code(self):
+        return self.line.get_line_code() + '-' + 'R' + self.pk
