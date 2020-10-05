@@ -7,4 +7,5 @@ class SceneCreateForm(forms.ModelForm):
         model = Scene
         fields = [
             'description',
+            'characters',
         ]

@@ -3,12 +3,14 @@ from django.urls import reverse
 from characters.models import Character
 
 class Scene(models.Model):
-    code = models.CharField(max_length = 12, default='')
     description = models.TextField(default='')
     characters = models.ManyToManyField(Character)
 
     def __str__(self):
-        return self.code + ': ' + self.description
+        if(self.id != Null and self.description != Null):
+            return self.id + ': ' + self.description
+        else:
+            return str(self.pk)
 
     def get_absolute_url(self):
         return reverse('scenes:show-scene', kwargs={'pk': self.pk})
