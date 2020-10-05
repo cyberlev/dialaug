@@ -6,6 +6,5 @@ class SceneCreateForm(forms.ModelForm):
     class Meta:
         model = Scene
         fields = [
-            'code',
             'description',
         ]

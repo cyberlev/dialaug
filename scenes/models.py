@@ -11,13 +11,13 @@ class Scene(models.Model):
         return self.code + ': ' + self.description
 
     def get_absolute_url(self):
-        return reverse('scenes:show-scene', kwargs={'pk': self.id})
+        return reverse('scenes:show-scene', kwargs={'pk': self.pk})
     
     def get_edit_url(self):
-        return reverse('scenes:edit-scene', kwargs={'pk': self.id})
+        return reverse('scenes:edit-scene', kwargs={'pk': self.pk})
 
     def get_delete_url(self):
-        return reverse('scenes:delete-scene', kwargs={'pk': self.id})
+        return reverse('scenes:delete-scene', kwargs={'pk': self.pk})
 
     def get_characters_url(self):
-        return reverse('scenes:characters-scene', kwargs={'pk': self.id})
+        return reverse('scenes:characters-scene', kwargs={'pk': self.pk})
