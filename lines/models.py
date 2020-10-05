@@ -11,7 +11,7 @@ class Line(models.Model):
     author = models.ForeignKey(User, on_delete=models.PROTECT, default=1)
 
     class Meta:
-        ordering = ['code']
+        ordering = ['pk']
 
     def __str__(self):
         if(self.pk != None and self.text != None):

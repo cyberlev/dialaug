@@ -36,7 +36,7 @@
                         {% for line in object.line_set.all %}
 
                         <div class="card">
-                            <h5 class="card-header">{{ line.code }}</h5>
+                            <h5 class="card-header">{{ line.pk }}</h5>
                             <div class="card-body">
                                 <h5 class="card-title">{{ line.character.name }}:</h5>
                                 <p class="card-text">{{ line.text }}</p>
@@ -67,7 +67,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ object.code }}</h5>
+                        <h5 class="card-title">Line: L{{ object.pk }}</h5>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
 
                         <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>

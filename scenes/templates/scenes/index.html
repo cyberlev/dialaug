@@ -33,10 +33,21 @@ DIALAUG
                                 <div class="card">
                                     <div class="card-body">
                                         <h5 class="card-title"><a href="{{ scene.get_absolute_url }}">S{{ scene.pk }}</a></h5>
-                                        <p class="card-text"><small class="text-muted">{{ character.code }}</small></p>
+
+                                        {% for character in scene.characters.all %}
+
+                                        <a href="{{ character.get_absolute_url }}"><span class="badge badge-success">{{ character.name }}</span></a>
+
+                                        {% endfor %}
+
                                         <p class="card-text">{{ scene.description }}</p>
-                                        <a href="{{ scene.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
-                                        <a href="{{ scene.get_delete_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
+
+                                        <a href="{{ scene.get_edit_url }}" class="btn btn-outline-primary btn-sm">
+                                            {% include 'icons/pencil_fill.html' %}
+                                        </a>
+                                        <a href="{{ scene.get_delete_url }}" class="btn btn-outline-danger btn-sm">
+                                            {% include 'icons/trash_can_fill.html' %}
+                                        </a>
                                     </div>
                                 </div>
             

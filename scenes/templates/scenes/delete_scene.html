@@ -16,7 +16,7 @@ DIALAUG
 
                     {% csrf_token %}
                 
-                    <h1>Do you want to delete this scene: {{ object.code }}</h1>
+                    <h1>Do you want to delete this scene: S{{ object.pk }}</h1>
                 
                     <p><input type="submit" value="Yes" /> <a href="{{ object.get_absolute_url }}">Cancel</a></p>
                 

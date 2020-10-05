@@ -7,8 +7,8 @@ class Scene(models.Model):
     characters = models.ManyToManyField(Character)
 
     def __str__(self):
-        if(self.id != Null and self.description != Null):
-            return self.id + ': ' + self.description
+        if(self.pk != None and self.description != None):
+            return 'S' + str(self.pk) + ': ' + self.description
         else:
             return str(self.pk)
 
