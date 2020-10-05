@@ -44,17 +44,3 @@ class DeleteView(generic.DeleteView):
     
     def get_success_url(self):
         return reverse('lines:index')
-
-def create_view(request):
-    form = ModelLineCreateForm(request.POST or None)
-
-    if(form.is_valid()):
-        form.save()
-        # form = ModelLineCreateForm()
-
-    context = {
-        'form': form,
-    }
-
-    return render(request, 'lines/create_line.html', context)
-

@@ -10,13 +10,14 @@
 
             <div class="col-md-8">
 
-                <h3>Lines</h3>
-
+                <h3>Lines <a href="#" class="btn btn-sm btn-outline-primary">Add</a></h3>
+                
+                
                 <div class="card">
 
                     <div class="card-body">
 
-                        <ul class="nav">
+                        <ul class="nav nav-tabs">
                             <li class="nav-item">
                                 <a class="nav-link active" href="{{ object.get_absolute_url }}">Lines</a>
                             </li>
@@ -36,7 +37,7 @@
                         {% for line in object.line_set.all %}
 
                         <div class="card">
-                            <h5 class="card-header">{{ line.pk }}</h5>
+                            <h5 class="card-header">{{ line.character.name }}: L{{ line.pk }}</h5>
                             <div class="card-body">
                                 <h5 class="card-title">{{ line.character.name }}:</h5>
                                 <p class="card-text">{{ line.text }}</p>
@@ -48,16 +49,7 @@
                         <br>
 
                         {% endfor %}
-
-                        <div class="card">
-                            <h5 class="card-header">DRMT001</h5>
-                            <div class="card-body">
-                                <h5 class="card-title">Character:</h5>
-                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>
-                                <a href="{{ object.get_edit_url }}" class="btn btn-outline-danger btn-sm">Delete</a>
-                            </div>
-                        </div>
+                       
                     </div>
                 </div>
 
@@ -65,6 +57,8 @@
 
             <div class="col-md-4">
 
+                <h3>Menu</h3>
+                
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Line: L{{ object.pk }}</h5>
