@@ -25,6 +25,7 @@ class ModelLineCreateForm(forms.ModelForm):
     class Meta:
         model = Line
         fields = [
-            'line_code',
-            'line_text',
+            'text',
+            'character',
+            'scene',
         ]

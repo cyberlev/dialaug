@@ -15,7 +15,7 @@ class Line(models.Model):
 
     def __str__(self):
         if(self.pk != None and self.text != None):
-            return self.pk + ': ' + self.text
+            return str(self.pk) + ': ' + self.text
         else:
             return str(self.pk)
 

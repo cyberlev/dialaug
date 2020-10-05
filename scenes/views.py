@@ -17,7 +17,6 @@ class CreateView(generic.CreateView):
     model = Scene
     template_name = 'scenes/create_scene.html'
     form_class = SceneCreateForm
-    model.code = 'S' + str(model.pk)
 
     def form_valid(self, form):
         return super().form_valid(form)

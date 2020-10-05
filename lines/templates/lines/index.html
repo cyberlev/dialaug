@@ -12,7 +12,7 @@
 
                 <ul>
                     {% for line in lines %}
-                    <li><a href="{{ line.get_absolute_url }}">{{ line }}: {{ line.line_text }}</a></li>
+                    <li><a href="{{ line.get_absolute_url }}">S{{ line.scene.pk }}-{{ line.character.code }}-L{{ line.pk }}: {{ line.text }}</a></li>
                     {% endfor %}
                 </ul>
                 
