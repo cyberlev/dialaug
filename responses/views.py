@@ -14,14 +14,14 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Response
-    template_name = 'responses/show_line.html'
+    template_name = 'responses/show_response.html'
 
     def get_queryset(self):
         return Response.objects.all()
 
 class UpdateView(generic.UpdateView):
     model = Response
-    template_name = 'responses/create_line.html'
+    template_name = 'responses/create_response.html'
     form_class = ResponseCreateForm
 
     def form_valid(self, form):
@@ -29,7 +29,7 @@ class UpdateView(generic.UpdateView):
 
 class CreateView(generic.CreateView):
     model = Response
-    template_name = 'responses/create_line.html'
+    template_name = 'responses/create_response.html'
     form_class = ResponseCreateForm
 
     def form_valid(self, form):
@@ -37,7 +37,7 @@ class CreateView(generic.CreateView):
 
 class DeleteView(generic.DeleteView):
     model = Response
-    template_name = 'responses/delete_line.html'
+    template_name = 'responses/delete_response.html'
 
     def get_queryset(self):
         return Response.objects.all()

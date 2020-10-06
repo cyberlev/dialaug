@@ -7,6 +7,4 @@ class ResponseCreateForm(forms.ModelForm):
         model = Response
         fields = [
             'text',
-            'character',
-            'scene',
         ]

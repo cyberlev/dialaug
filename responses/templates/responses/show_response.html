@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <h2>Response</h1>
+
+                <div class="card">
+                    <div class="card-body">
+                       <h5><b>Line Text</b></h5> 
+                        
+                        <h5 class="card-title">
+                            <a href="#" class="btn btn-sm btn-outline-warning btn-block">{{ object.line.text }}</a>
+                        </h5>
+
+                        <br>
+
+                        <h5><b>Response Text</b></h5>
+
+                        <a href="#" class="btn btn-sm btn-outline-warning btn-block">{{ object.text }}</a>
+                        <br>
+                    </div>
+                </div>
+                
+            </div>
+
+        </div>
+
+    </div>
+    
+{% endblock %}
+

@@ -15,10 +15,10 @@ class Response(models.Model):
         return self.text
 
     def get_absolute_url(self):
-        return reverse("responses:show-thought", kwargs={'pk': self.pk})
+        return reverse("responses:show-response", kwargs={'pk': self.pk})
     
     def get_edit_url(self):
-        return reverse("responses:edit-thought", kwargs={'pk': self.pk})
+        return reverse("responses:edit-response", kwargs={'pk': self.pk})
 
     def get_response_code(self):
         return self.line.get_line_code() + '-' + 'R' + self.pk
