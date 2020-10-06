@@ -14,7 +14,17 @@
                     
                     {% csrf_token %}
 
+                    <label for="">Root Line:</label>
+                    {{ form.line }}
+                    <br>
+
+                    <label for="">Text:</label>
                     {{ form.text }}
+                    <br>
+
+                    <label for="">Consequence:</label>
+                    {{ form.next_line }}
+                    <br>
 
                     <input type="submit" value="Save" />
 

@@ -33,22 +33,24 @@
                             
                             <ol>
 
+                                {% for response in object.response_set.all %}
+
                                 <li>
-                                    <a href="#" class="btn btn-sm btn-outline-info btn-block">My first response is a pretty long one for some reason. I just want to test the limits here.</a> 
+                                    <a href="#" class="btn btn-sm btn-outline-info btn-block">{{ response.text }}</a> 
                                     <a href="#" class="badge badge-primary">Add consequense</a>
                                 </li>
+
+                                <br>
+
+                                {% endfor %}
 
                             </ol>
                             
                         </div>
                     </div>
-
                     
                 </div>
                 
-                
-                
-
             </div>
 
         </div>
