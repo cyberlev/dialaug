@@ -56,7 +56,7 @@
                             <td><a href="{{ response.next_line.get_absolute_url }}">{{ response.next_line.get_line_code }}</a></td>
                             <td><a href="{{ response.scene.get_absolute_url }}">{{ response.line.scene.get_scene_code }}</a></td>
                             <td>{{ response.author }}</td>
-                            <td><a href="{{ line.get_edit_url }}">{% include 'icons/pencil_fill.html' %}</a></td>
+                            <td><a href="{{ response.get_edit_url }}">{% include 'icons/pencil_fill.html' %}</a></td>
 
                         </tr>
 
