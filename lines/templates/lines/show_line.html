@@ -24,7 +24,7 @@
 
                         <h5><b>Text</b></h5>
 
-                        <a href="#" class="btn btn-sm btn-outline-warning btn-block">{{ object.text }}</a>
+                        <a href="{{ object.get_absolute_url }}" class="btn btn-sm btn-outline-warning btn-block">{{ object.text }}</a>
 
                         <br>
 
@@ -36,7 +36,7 @@
                                 {% for response in object.response_set.all %}
 
                                 <li>
-                                    <a href="#" class="btn btn-sm btn-outline-info btn-block">{{ response.text }}</a> 
+                                    <a href="{{ response.get_absolute_url }}" class="btn btn-sm btn-outline-info btn-block">{{ response.text }}</a> 
                                     <a href="#" class="badge badge-primary">Add consequense</a>
                                 </li>
 

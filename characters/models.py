@@ -12,10 +12,16 @@ class Character(models.Model):
         return self.name + ' (' + self.code + ')'
 
     def get_absolute_url(self):
-        return reverse("characters:show-character", kwargs={'pk': self.id})
+        return reverse("characters:show-character", kwargs={'pk': self.pk})
     
     def get_edit_url(self):
-        return reverse("characters:edit-character", kwargs={'pk': self.id})
+        return reverse("characters:edit-character", kwargs={'pk': self.pk})
 
     def get_delete_url(self):
-        return reverse("characters:delete-character", kwargs={'pk': self.id})
+        return reverse("characters:delete-character", kwargs={'pk': self.pk})
+
+    def get_character_code(self):
+        if(self.code != None):
+            return self.code
+        else:
+            return 'NONE'

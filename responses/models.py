@@ -2,11 +2,13 @@ from django.db import models
 from django.urls import reverse
 from lines.models import Line
 from scenes.models import Scene
+from django.contrib.auth.models import User
 
 class Response(models.Model):
     line = models.ForeignKey(Line, on_delete=models.PROTECT)
     next_line = models.OneToOneField(Line, related_name="next_line", on_delete=models.PROTECT, null=True)
     text = models.TextField(default='')
+    author = models.ForeignKey(User, on_delete=models.PROTECT, default=1)
     
     class Meta:
         ordering = ['pk']
@@ -21,4 +23,4 @@ class Response(models.Model):
         return reverse("responses:edit-response", kwargs={'pk': self.pk})
 
     def get_response_code(self):
-        return self.line.get_line_code() + '-' + 'R' + self.pk
+        return self.line.get_line_code() + '-' + 'R' + str(self.pk)
