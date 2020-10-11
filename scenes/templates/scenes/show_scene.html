@@ -45,18 +45,6 @@
                                 <a href="{{ line.get_absolute_url }}" class="badge badge-warning">{{ line.get_line_id }}</a>
                             </h5>
 
-                           <ul class="nav justify-content-end">
-                               <li class="nav-item">
-                                    <a class="nav-link" href="{{ line.get_edit_url }}">Add response</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ line.get_edit_url }}">Edit</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ line.get_delete_url }}">Delete</a>
-                                </li>
-                            </ul> 
-
                             <div class="card-body">
                                 <h5 class="card-title"><b>{{ line.character.name }}:</b></h5>
 
@@ -67,15 +55,31 @@
                                 <div>
                                     <h5><b>Responses</b></h5>
 
+                                    {% if line.response_set.all %}
+
                                     <ol>
 
+                                        {% for response in line.response_set.all %}
+
                                         <li>
-                                            <a href="#" class="btn btn-sm btn-outline-info btn-block">My first response is a pretty long one for some reason. I just want to test the limits here.</a>
+                                            <a href="{{ response.get_absolute_url }}" class="btn btn-sm btn-outline-info btn-block">{{ response.text }}</a> 
+                                            <a href="#" class="badge badge-primary">Add consequense</a>
                                         </li>
+
+                                        <br>
+
+                                        {% endfor %}
 
                                     </ol>
 
-                                    
+                                    {% else %}
+
+                                    <div class="alert alert-secondary" role="alert">
+                                        Not responses yet.
+                                    </div>
+
+                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>

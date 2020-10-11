@@ -2,74 +2,76 @@
 
 {% block content %}
 
-    <div class="container">
+<div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            <div class="col-md-12">
+        <div class="col-md-12">
 
-                <h1>Lines</h1>
+            <h1>Lines</h1>
 
-                <table class="table table-bordered">
+            {% include 'create_header.html' %}
 
-                    <thead>
+            <table class="table table-bordered">
 
-                        <tr>
+                <thead>
 
-                            <th scope="col">
-                                Line ID
-                            </th>
+                    <tr>
 
-                            <th scope="col">
-                                Line Code
-                            </th>
+                        <th scope="col">
+                            Line ID
+                        </th>
 
-                            <th scope="col">
-                                Line Text
-                            </th>
+                        <th scope="col">
+                            Line Code
+                        </th>
 
-                            <th scope="col">
-                                Character
-                            </th>
+                        <th scope="col">
+                            Line Text
+                        </th>
 
-                            <th scope="col">
-                                Scene
-                            </th>
+                        <th scope="col">
+                            Character
+                        </th>
 
-                            <th scope="col">
-                                Author
-                            </th>
+                        <th scope="col">
+                            Scene
+                        </th>
 
-                        </tr>
+                        <th scope="col">
+                            Author
+                        </th>
 
-                    </thead>
+                    </tr>
 
-                    <tbody>
+                </thead>
 
-                        {% for line in lines %}
+                <tbody>
 
-                        <tr>
+                    {% for line in lines %}
 
-                            <th scope="row">{{ line.pk }}</th>
-                            <td><a href="{{ line.get_absolute_url }}">{{ line.get_line_code }}</a></td>
-                            <td>{{ line.text }}</td>
-                            <td><a href="{{ line.character.get_absolute_url }}">{{ line.character.name }}</a></td>
-                            <td><a href="{{ line.scene.get_absolute_url }}">{{ line.scene.get_scene_code }}</a></td>
-                            <td>{{ line.author }}</td>
-                            <td><a href="{{ line.get_edit_url }}">{% include 'icons/pencil_fill.html' %}</a></td>
+                    <tr>
 
-                        </tr>
+                        <th scope="row">{{ line.pk }}</th>
+                        <td><a href="{{ line.get_absolute_url }}">{{ line.get_line_code }}</a></td>
+                        <td>{{ line.text }}</td>
+                        <td><a href="{{ line.character.get_absolute_url }}">{{ line.character.name }}</a></td>
+                        <td><a href="{{ line.scene.get_absolute_url }}">{{ line.scene.get_scene_code }}</a></td>
+                        <td>{{ line.author }}</td>
+                        <td><a href="{{ line.get_edit_url }}">{% include 'icons/pencil_fill.html' %}</a></td>
 
+                    </tr>
 
-                        {% endfor %}
+                    {% endfor %}
 
-                    </tbody>
+                </tbody>
 
-                </table>
-
-            </div>
+            </table>
 
         </div>
 
     </div>
+
+</div>
+
 {% endblock %}

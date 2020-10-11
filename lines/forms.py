@@ -1,4 +1,5 @@
 from django import forms
+from responses.models import Response
 
 from .models import Line
 
@@ -20,3 +21,6 @@ class ModelLineCreateForm(forms.ModelForm):
             'character',
             'scene',
         ]
+
+class AddResponseForm(forms.Form):
+    text = forms.CharField()
