@@ -8,3 +8,7 @@ class ResponseCreateForm(forms.ModelForm):
         fields = [
             'text',
         ]
+
+class AddConsequenceForm(forms.Form):
+    character = forms.IntegerField()
+    text = forms.CharField()

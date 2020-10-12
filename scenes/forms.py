@@ -9,3 +9,7 @@ class SceneCreateForm(forms.ModelForm):
             'description',
             'characters',
         ]
+
+class AddLineForm(forms.Form):
+    character = forms.IntegerField()
+    text = forms.CharField()

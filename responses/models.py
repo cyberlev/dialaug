@@ -24,3 +24,6 @@ class Response(models.Model):
 
     def get_response_code(self):
         return self.line.get_line_code() + '-' + 'R' + str(self.pk)
+    
+    def get_response_id(self):
+        return 'R' + str(self.pk)

@@ -4,26 +4,124 @@
 
     <div class="container">
 
+        <h2>Response</h2>
+
         <div class="row">
 
-            <div class="col-md-12">
-
-                <h2>Response</h1>
+            <div class="col-md-6">
 
                 <div class="card">
                     <div class="card-body">
-                       <h5><b>Line Text</b></h5> 
-                        
-                        <h5 class="card-title">
-                            <a href="#" class="btn btn-sm btn-outline-warning btn-block">{{ object.line.text }}</a>
+                       <h5><b>Origin</b></h5>
+                       
+                       <h5 class="card-title">
+                            <a href="{{ object.line.scene.get_absolute_url }}" class="badge badge-primary">{{ object.line.scene.get_scene_code }}</a>
+                            -
+                            <a href="{{ object.line.character.get_absolute_url }}" class="badge badge-success">{{ object.line.character.code }}</a>
+                            -
+                            <a href="{{ object.line.get_absolute_url }}" class="badge badge-warning">{{ object.line.get_line_id }}</a>
                         </h5>
 
-                        <br>
+                        <div class="card">
+                            <div class="card-body">
+                                <b>{{ object.line.character.name|upper }}</b>: <a href="{{ object.line.get_edit_url }}">{{ object.line.text }}</a>
+                            </div>
+                        </div>
 
-                        <h5><b>Response Text</b></h5>
+                        <p style="text-align: center;">
+                            <br>|<br>|<br>|<br>\/
+                        </p>
+                        
+                        <h5><b>Response</b></h5>
 
-                        <a href="#" class="btn btn-sm btn-outline-warning btn-block">{{ object.text }}</a>
-                        <br>
+                        <h5 class="card-title">
+                            <a href="{{ object.line.scene.get_absolute_url }}" class="badge badge-primary">{{ object.line.scene.get_scene_code }}</a>
+                            -
+                            <a href="{{ object.line.character.get_absolute_url }}" class="badge badge-success">{{ object.line.character.code }}</a>
+                            -
+                            <a href="{{ object.line.get_absolute_url }}" class="badge badge-warning">{{ object.line.get_line_id }}</a>
+                            -
+                            <a href="{{ object.get_absolute_url }}" class="badge badge-info">{{ object.get_response_id }}</a>
+                        </h5>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{{ object.get_edit_url }}">{{ object.text }}</a>
+                            </div>
+                        </div>
+
+                        <p style="text-align: center;">
+                            <br>|<br>|<br>|<br>\/
+                        </p>
+ 
+                        <h5><b>Consequence</b></h5>
+
+                        {% if object.next_line %}
+
+                        <h5 class="card-title">
+                            <a href="{{ object.next_line.scene.get_absolute_url }}" class="badge badge-primary">{{ object.next_line.scene.get_scene_code }}</a>
+                            -
+                            <a href="{{ object.next_line.character.get_absolute_url }}" class="badge badge-success">{{ object.next_line.character.code }}</a>
+                            -
+                            <a href="{{ object.next_line.get_absolute_url }}" class="badge badge-warning">{{ object.next_line.get_line_id }}</a>
+                        </h5>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <b>{{ object.next_line.character.name|upper }}</b>: <a href="{{ object.next_line.get_absolute_url }}">{{ object.next_line.text }}</a>
+                            </div>
+                        </div>
+
+                        {% else %}
+
+                        <p>No consequence yet.</p>
+
+                        {% endif %}
+
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-body">
+                        
+                        <h5 class="card-title">
+                            Add a Consequence
+                        </h5>
+
+                        <form action="." method="POST">
+
+                            {% csrf_token %}
+
+                            <div class="form-group">
+
+                                <select name="character" id="" class="form-control">
+
+                                    <option value="">
+                                        Select character
+                                    </option>
+    
+                                   {% for character in object.line.scene.characters.all %}
+                                   
+                                   <option value="{{ character.pk }}">{{ character.name }}</option>
+
+                                   {% endfor %}
+    
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="text" placeholder="Line text">
+                            </div>
+
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Add consequence</button>
+
+                        </form>
+
                     </div>
                 </div>
                 

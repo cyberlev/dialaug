@@ -4,15 +4,12 @@
 
     <div class="container">
 
-        <br>
+        <h2>Scene</h2>
 
         <div class="row">
 
             <div class="col-md-8">
 
-                <h3>Lines <a href="#" class="btn btn-sm btn-outline-primary">Add</a></h3>
-                
-                
                 <div class="card">
 
                     <div class="card-body">
@@ -34,6 +31,37 @@
 
                         <br>
 
+                        <form action="." method="POST">
+
+                            {% csrf_token %}
+
+                            
+                            <div class="form-group">
+
+                                <select name="character" id="" class="form-control form-control-sm">
+
+                                    <option value="">Select character</option>
+
+                                    {% for character in object.characters.all %}
+
+                                    <option value="{{ character.pk }}">{{ character.name }}</option>
+
+                                    {% endfor %}
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-sm" name="text" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-sm btn-outline-primary">Add line</button>
+
+                        </form>
+
+                        <br>
+
                         {% for line in object.line_set.all %}
 
                         <div class="card">
@@ -46,9 +74,13 @@
                             </h5>
 
                             <div class="card-body">
-                                <h5 class="card-title"><b>{{ line.character.name }}:</b></h5>
+                                <h5 class="card-title"><b>Text</b></h5>
 
-                                <a href="{{ line.get_absolute_url }}" class="btn btn-sm btn-outline-warning btn-block">{{ line.text }}</a>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <b>{{ line.character.name|upper }}:</b> <a href="{{ line.get_absolute_url }}">{{ line.text }}</a>
+                                    </div>
+                                </div>
 
                                 <br>
 
@@ -95,8 +127,6 @@
 
             <div class="col-md-4">
 
-                <h3>Scene</h3>
-                
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">{{ object.get_scene_code }}</h5>

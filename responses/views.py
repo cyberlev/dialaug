@@ -1,9 +1,12 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.urls import reverse
+from django.http import HttpResponseRedirect
+from lines.models import Line
+from characters.models import Character
 
 from .models import Response
-from .forms import ResponseCreateForm 
+from .forms import ResponseCreateForm, AddConsequenceForm 
 
 class IndexView(generic.ListView):
     template_name = 'responses/index.html'
@@ -18,6 +21,23 @@ class DetailView(generic.DetailView):
 
     def get_queryset(self):
         return Response.objects.all()
+
+    def post(self, request, *args, **kwargs):
+        form = AddConsequenceForm(request.POST)
+        self.object = self.get_object()
+
+        if form.is_valid():
+            new_line = Line(text=form.cleaned_data['text'], character=Character.objects.get(pk=form.cleaned_data['character']), scene=self.object.line.scene)
+            new_line.save()
+            self.object.next_line = new_line
+            self.object.save()
+
+            return HttpResponseRedirect(self.object.get_absolute_url())
+        else:
+            return HttpResponseRedirect(self.object.get_absolute_url())
+
+
+
 
 class UpdateView(generic.UpdateView):
     model = Response

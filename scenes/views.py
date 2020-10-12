@@ -1,10 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 from .models import Scene
 
-from .forms import SceneCreateForm
+from .forms import SceneCreateForm, AddLineForm
 
 class IndexView(generic.ListView):
     template_name = 'scenes/index.html'
@@ -27,6 +28,19 @@ class DetailView(generic.DetailView):
 
     def get_queryset(self):
         return Scene.objects.all()
+
+    def post(self, request, *args, **kwargs):
+        form = AddLineForm(request.POST)
+        scene = self.get_object()
+
+        
+        if form.is_valid():
+            scene.line_set.create(text=form.cleaned_data['text'], character=scene.characters.get(pk=form.cleaned_data['character']), scene=scene)
+
+            return HttpResponseRedirect(scene.get_absolute_url())
+        else:
+            return HttpResponseRedirect(scene.get_absolute_url())
+
 
 class UpdateView(generic.UpdateView):
     model = Scene
