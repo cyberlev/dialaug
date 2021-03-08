@@ -5,10 +5,10 @@ from scenes.models import Scene
 from django.contrib.auth.models import User
 
 class Response(models.Model):
-    line = models.ForeignKey(Line, on_delete=models.PROTECT)
-    next_line = models.OneToOneField(Line, related_name="next_line", on_delete=models.PROTECT, null=True)
+    line = models.ForeignKey(Line, on_delete=models.CASCADE)
+    next_line = models.OneToOneField(Line, related_name="next_line", on_delete=models.CASCADE, null=True)
     text = models.TextField(default='')
-    author = models.ForeignKey(User, on_delete=models.PROTECT, default=1)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     
     class Meta:
         ordering = ['pk']

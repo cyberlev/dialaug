@@ -1,0 +1,5 @@
+db.sqlite3
+.vscode
+zelim-standard.code-workspace
+__pycache__/
+dlg/settings.py

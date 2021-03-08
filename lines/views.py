@@ -59,6 +59,7 @@ class DeleteView(generic.DeleteView):
         return Line.objects.all()
     
     def get_success_url(self):
+        print('success')
         return reverse('lines:index')
 
 def add_response(request):

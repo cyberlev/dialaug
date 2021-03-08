@@ -33,7 +33,7 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <b>{{ object.character.name|upper }}</b>: <a href="{{ object.get_edit_url }}">{{ object.text }}</a>
+                                <b>{{ object.character.name|upper }}</b>: {{ object.text }}
                             </div>
                         </div>
 
@@ -47,7 +47,7 @@
                                 {% csrf_token %}
 
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-sm" name="text" required>
+                                    <input type="text" class="form-control form-control-sm" name="text" placeholder="Enter response text here" required>
                                 </div>
 
                                 <button type="submit" class="btn btn-sm btn-outline-primary">Add response</button>
@@ -62,7 +62,6 @@
 
                                 <li>
                                     <a href="{{ response.get_absolute_url }}" class="btn btn-sm btn-outline-info btn-block">{{ response.text }}</a> 
-                                    <a href="#" class="badge badge-primary">Add consequense</a>
                                 </li>
 
                                 <br>

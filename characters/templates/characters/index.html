@@ -2,15 +2,11 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container">
 
     <div class="row">
 
-        {% include 'side_nav.html' %}
-
-        <div class="col-md-10">
-
-            <br>
+        <div class="col-md-12">
 
             <div class="row">
 
@@ -24,12 +20,12 @@
 
                         {% for character in characters %}
         
-                        <div class="col-md-4">
+                        <div class="col-md-6">
         
                             <div class="card">
                                 <img src="" class="card-img-top" alt="">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ character.name }}</h5>
+                                    <h5 class="card-title"><a href="{{ character.get_absolute_url }}">{{ character.name }}</a></h5>
                                     <p class="card-text"><small class="text-muted">{{ character.code }}</small></p>
                                     <p class="card-text">{{ character.description }}</p>
                                     <a href="{{ character.get_edit_url }}" class="btn btn-outline-primary btn-sm">Edit</a>

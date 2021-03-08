@@ -24,7 +24,9 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <b>{{ object.line.character.name|upper }}</b>: <a href="{{ object.line.get_edit_url }}">{{ object.line.text }}</a>
+                                <p><b>{{ object.line.character.name|upper }}</b>: {{ object.line.text }}</p>
+                                <a href="{{ object.line.get_absolute_url }}" class="card-link">Detail</a>
+                                <a href="{{ object.line.get_edit_url }}" class="card-link">Edit</a>
                             </div>
                         </div>
 
@@ -46,9 +48,12 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <a href="{{ object.get_edit_url }}">{{ object.text }}</a>
+                                <p class="card-text"><b>NOA:</b> {{ object.text }}</p>
+                                <a href="{{ object.get_absolute_url }}" class="card-link">Detail</a>
+                                <a href="{{ object.get_edit_url }}" class="card-link">Edit</a>
                             </div>
                         </div>
+
 
                         <p style="text-align: center;">
                             <br>|<br>|<br>|<br>\/
@@ -68,7 +73,9 @@
 
                         <div class="card">
                             <div class="card-body">
-                                <b>{{ object.next_line.character.name|upper }}</b>: <a href="{{ object.next_line.get_absolute_url }}">{{ object.next_line.text }}</a>
+                                <p><b>{{ object.next_line.character.name|upper }}</b>: {{ object.next_line.text }}</p>
+                                <a href="{{ object.next_line.get_absolute_url }}" class="card-link">Detail</a>
+                                <a href="{{ object.next_line.get_edit_url }}" class="card-link">Edit</a>
                             </div>
                         </div>
 

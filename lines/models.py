@@ -5,10 +5,10 @@ from characters.models import Character
 from django.contrib.auth.models import User
 
 class Line(models.Model):
-    scene = models.ForeignKey(Scene, on_delete=models.PROTECT, default=None, null=True)
-    character = models.ForeignKey(Character, on_delete=models.PROTECT, null=True)
+    scene = models.ForeignKey(Scene, on_delete=models.CASCADE, default=None, null=True)
+    character = models.ForeignKey(Character, on_delete=models.CASCADE, null=True)
     text = models.TextField(default='')
-    author = models.ForeignKey(User, on_delete=models.PROTECT, default=1)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     class Meta:
         ordering = ['pk']
