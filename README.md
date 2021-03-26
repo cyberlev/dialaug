@@ -1,2 +1,2 @@
 # Dialaug
-A dialogue augmentation tool for games.
+A dialogue augmentation tool.
