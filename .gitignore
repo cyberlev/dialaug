@@ -3,6 +3,7 @@
 *.py[co]
 *.sqlite3
 .tox/
+.vscode/
 __pycache__
 MANIFEST
 dist/
